@@ -1,0 +1,12 @@
+.menu { cursor: pointer;
+        line-height: 20px;
+        padding-left: 25px;
+        background: url(minus.svg) 0 0 no-repeat;
+        background-size: 20px 20px; }
+
+.menu .list { display: none; }
+
+.menu.open { background: url(plus.svg) 0 0 no-repeat;
+             background-size: 20px 20px; }
+
+.menu.open .list { display: block; }
