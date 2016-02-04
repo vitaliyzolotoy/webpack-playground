@@ -13,10 +13,10 @@ function addHash(template, hash) {
 module.exports = {
   context: __dirname + '/frontend',
   entry: {
-    home: './home',
-    about: './about',
-    app: './app',
-    external: './external'
+    app: ['webpack-dev-server/client','webpack/hot/dev-server', './app'],
+    // home: './home',
+    // about: './about',
+    // external: './external'
   },
   output: {
     path: __dirname + '/public/assets',
@@ -37,7 +37,7 @@ module.exports = {
       NODE_ENV: JSON.stringify(NODE_ENV),
       LANG: 'ru'
     }),
-    new webpack.optimize.CommonsChunkPlugin(addHash('common.js', 'chunkhash')),
+    new webpack.optimize.CommonsChunkPlugin(addHash('common.js', 'hash')),
     new webpack.ProvidePlugin({
       pluck: 'lodash/collection/pluck'
     }),
@@ -45,7 +45,8 @@ module.exports = {
     new AssetsPlugin({
       filename: 'assets.json',
       path: __dirname + '/public/assets/'
-    })
+    }),
+    new webpack.HotModuleReplacementPlugin()
   ],
 
   externals: {
@@ -93,6 +94,7 @@ module.exports = {
   devServer: {
     host: 'localhost',
     port: 4000,
+    hot: true,
     proxy: [{
       path: /.*/,
       target: 'http://localhost:3000'

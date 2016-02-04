@@ -2,7 +2,8 @@
         line-height: 20px;
         padding-left: 25px;
         background: url(minus.svg) 0 0 no-repeat;
-        background-size: 20px 20px; }
+        background-size: 20px 20px;
+        color: red; }
 
 .menu .list { display: none; }
 

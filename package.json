@@ -23,11 +23,13 @@
     "node-static": "^0.7.7",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.7",
-    "webpack": "^1.12.12"
+    "webpack": "^1.12.12",
+    "webpack-dev-server": "^1.14.1"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "NODE_ENV=development webpack-dev-server",
+    "start": "NODE_ENV=production webpack"
   },
   "author": "",
   "license": "ISC"
